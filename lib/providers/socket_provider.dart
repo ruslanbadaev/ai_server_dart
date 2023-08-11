@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 // import 'package:dart_frog/dart_frog.dart';
@@ -40,9 +41,14 @@ echo "Image saved as image.png"
           // Listen for incoming messages from the client
           socket.listen((message) {
             print('Received message: $message');
+            // Map valueMap = jsonDecode(value)
+            Map messageMap = jsonDecode(message);
             // socket.add('You sent: $message');
 
-            runShellScript('python3 python_utils/photo_saver.py', socket);
+            runShellScript(
+              'python3 photo_saver.py "${messageMap['picture']}" "${messageMap['filename']}"',
+              socket,
+            );
           });
         } else {
           request.response.statusCode = HttpStatus.forbidden;
