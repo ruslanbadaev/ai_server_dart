@@ -46,7 +46,7 @@ echo "Image saved as image.png"
             // socket.add('You sent: $message');
 
             runShellScript(
-              'python3 photo_saver.py "${messageMap['picture']}" "${messageMap['filename']}"',
+              'python photo_saver.py "${messageMap['picture']}" "${messageMap['filename']}"',
               socket,
             );
           });

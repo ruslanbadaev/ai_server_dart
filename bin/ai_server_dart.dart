@@ -8,8 +8,8 @@ import 'package:ai_server_dart/providers/static_provider.dart';
 
 Future<void> main() async {
   SocketProvider socketProvider = SocketProvider();
-  // StaticProvider staticProvider = StaticProvider();
+  StaticProvider staticProvider = StaticProvider();
 
   socketProvider.runSocketServer();
-  // staticProvider.runStatic();
+  staticProvider.runStatic();
 }
